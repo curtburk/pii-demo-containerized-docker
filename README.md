@@ -1,4 +1,4 @@
-# PII Masking Demo — Updated for easier start using a Docker container
+# PII Masking Demo - Updated for easier start using a Docker container
 
 # PII Masking Demo - Fine-tuning Comparison
 
