@@ -1,0 +1,17 @@
+# Models (too large for git, downloaded separately)
+models/*.gguf
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual envs
+new-ft-env/
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+

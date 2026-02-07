@@ -1,0 +1,51 @@
+# =============================================================================
+# PII Masking Demo - Docker Compose
+# 
+# Usage:
+#   ./start.sh --build             # First time / after code changes
+#   ./start.sh                     # Subsequent runs
+#   docker compose down            # Stop everything
+#
+# Prerequisites:
+#   - NVIDIA Container Toolkit installed
+#   - GGUF model files in ./models/ directory
+# =============================================================================
+
+services:
+  pii-demo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pii-masking-demo
+    ports:
+      - "8000:8000"   # Backend API
+      - "8080:8080"   # Frontend web UI
+    volumes:
+      # Mount models from host - keeps Docker image small
+      - ./models:/app/models:ro
+      # Optional: mount frontend for live editing during development
+      # - ./frontend:/app/frontend:ro
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+      - BASE_MODEL_PATH=/app/models/tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf
+      - FINETUNED_MODEL_PATH=/app/models/pii_detector_Q4_K_M.gguf
+      - TOKENIZERS_PARALLELISM=false
+      - OMP_NUM_THREADS=4
+      # Host IP for clickable URLs — auto-detected by start.sh
+      # Override manually if needed: HOST_IP=192.168.10.117 ./start.sh
+      - HOST_IP=${HOST_IP:-}
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
