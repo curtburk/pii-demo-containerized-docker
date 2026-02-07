@@ -67,7 +67,7 @@ For subsequent runs (no rebuild needed):
 
 To stop:
 ```bash
-docker compose down
+Press Ctrl + C
 ```
 
 ## Directory Structure
