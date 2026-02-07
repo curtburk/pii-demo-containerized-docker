@@ -1,8 +1,9 @@
-# PII Masking Demo — Dockerized
+# PII Masking Demo — Updated for easier start using a Docker container
+
+# PII Masking Demo - Fine-tuning Comparison
 
 ## Overview
-
-Containerized version of the PII Masking fine-tuning comparison demo for the HP ZGX Nano. Compares a base TinyLlama model against a fine-tuned Qwen2.5-32B model to demonstrate the value of local AI model fine-tuning.
+This demonstration showcases the effectiveness of fine-tuning large language models for PII (Personally Identifiable Information) detection and masking. The demo compares a base TinyLlama model against a fine-tuned Qwen2.5-32B model, highlighting the dramatic improvement in accuracy and consistency achieved through fine-tuning.
 
 ## Prerequisites
 
@@ -118,6 +119,58 @@ You can also override `HOST_IP` at launch time:
 ```bash
 HOST_IP=10.0.0.5 ./start.sh --build
 ```
+### Using the Demo Interface
+
+1. **Load Models**: Click the "Load Models" button first (this takes 1-2 minutes)
+2. **Enter Text**: Type or paste text containing PII, or use the sample buttons
+3. **Process**: Click "Process & Compare" to see both models' outputs
+4. **Compare Results**: Observe the difference between the base and fine-tuned models
+
+## Demo Flow for Presentations
+
+1. **Introduction**: Explain the importance of PII protection in enterprise environments
+2. **Show Base Model Performance**: Demonstrate how a generic model struggles with PII detection
+3. **Show Fine-tuned Model**: Highlight the accuracy improvement from fine-tuning
+4. **Emphasize Local Processing**: Point out that all processing happens locally on the HP ZGX Nano
+5. **Performance Metrics**: Show inference time comparisons between models
+
+## Notes for Sales Teams
+
+- Allow 3-5 minutes for initial model loading during setup so it's best to run this a few minutes before you have to present
+- Test the demo before customer presentations
+- Have sample PII text ready (the interface includes examples)
+- The fine-tuned model will consistently outperform the base model
+- Emphasize the local processing capability of the HP ZGX Nano
+- All processing happens on-device, ensuring data privacy
+
+## Further talking points around the Demo (What, Why and How)
+
+### The Problem We Solve
+- **Data Privacy Compliance Challenge**: Enterprises struggle with protecting sensitive customer and employee data (PII/PHI) in documents, emails, and databases while maintaining operational efficiency
+- **Cloud Dependency Risks**: Current AI solutions require sending sensitive data to cloud providers for processing, creating potential security vulnerabilities and compliance violations
+- **Generic AI Limitations**: Off-the-shelf AI models fail to accurately identify and mask PII consistently, leading to data leaks and regulatory exposure
+- **GDPR/HIPAA Compliance**: Organizations face millions in potential fines for mishandling personal data, with regulations becoming increasingly strict globally
+
+### How We Solve It
+- **100% Local Processing**: The HP ZGX Nano runs AI models entirely on-premises, ensuring sensitive data never leaves your infrastructure
+- **Custom Fine-tuning Capability**: Transform generic AI models into specialized PII detection systems tailored to your specific data formats and requirements
+- **Enterprise-Grade Performance**: Process documents with 32B+ parameter models locally, achieving cloud-level accuracy without cloud-level risks
+- **Dramatic Accuracy Improvement**: Fine-tuned models show 6x better PII detection accuracy compared to base models on average
+- **Real-time Processing**: Instant PII masking without network latency or API rate limits
+
+### Why It's Important
+- **Data Sovereignty**: Complete control over where your data lives and how it's processed - critical for regulated industries like healthcare, finance, and government
+- **Regulatory Compliance**: Meet stringent data protection requirements (GDPR, HIPAA, CCPA) by ensuring sensitive data never leaves your secure environment
+- **Competitive Advantage**: Process sensitive customer data faster than competitors relying on cloud services, without security review delays
+- **Cost Predictability**: Eliminate recurring cloud AI API costs - one-time hardware investment with unlimited processing
+- **Trust and Reputation**: Demonstrate to customers that their data privacy is paramount by processing everything locally
+- **Immediate ROI**: Reduce data breach risk while accelerating AI adoption across the enterprise
+
+### Key Differentiator Message
+"While competitors send your sensitive data to the cloud for AI processing, the HP ZGX Nano brings enterprise AI to your data - delivering the same powerful capabilities without ever compromising security or compliance."
+
+## Support
+For issues or questions about this demo, please contact Curtis Burkhalter at curtis.burkhalter@hp.com
 
 ## Targeting Different GPUs
 
