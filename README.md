@@ -35,12 +35,12 @@ docker run --rm --gpus all nvidia/cuda:12.8.0-base-ubuntu24.04 nvidia-smi
 ```
 
 ## Quick Start
-
+```bash
 # 1. Clone GitHub
 git clone https://github.com/curtburk/pii-demo-containerized-docker.git
 cd pii-demo-containerized-docker
 
-```bash
+
 # 2. Download model files (~19GB total)
 chmod +x download_models.sh
 ./download_models.sh
